@@ -1,0 +1,11 @@
+[Unit]
+Description=API Service for the Canteen
+After=multi-user.target
+
+[Service]
+ExecStart=/usr/local/sbin/haproxy -W -db -f /etc/haproxy.cfg
+ExecReload=/usr/local/sbin/haproxy -W -db -f /etc/haproxy.cfg -sf
+Type=notify
+
+[Install]
+WantedBy=multi-user.target
